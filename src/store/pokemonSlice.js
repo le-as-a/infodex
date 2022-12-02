@@ -15,7 +15,7 @@ export const getPokemonById = createAsyncThunk(
 )
 
 export const pokemonSlice = createSlice({
-    name: 'ability',
+    name: 'pokemon',
     initialState,
     extraReducers: (builder) => {
         builder.addCase(getPokemonById.fulfilled, (state, action) => {

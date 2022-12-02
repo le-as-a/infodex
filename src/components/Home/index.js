@@ -8,11 +8,11 @@ import { getPokemonById } from '../../store/pokemonSlice';
 export default function() {
     const [randomId, setRandomId] = useState(0);
     const dispatch = useDispatch();
-    const pokeId = Math.floor(Math.random() * (905) + 1);
     const pkmn = useSelector(state => state.pokemon.random);
     
     useEffect(() => {
         (async () => {
+            const pokeId = Math.floor(Math.random() * (905) + 1);
             setRandomId(pokeId);
             dispatch(getPokemonById(pokeId));
         })();
