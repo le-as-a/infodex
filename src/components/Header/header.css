@@ -1,0 +1,22 @@
+div.header {
+    width: 65vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+div.opts-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5rem;
+    padding: 1rem;
+}
+
+#infodex-title {
+    align-self: flex-end;
+    font-size: 3.5rem;
+    font-family: 'Pocket Monk';
+}
