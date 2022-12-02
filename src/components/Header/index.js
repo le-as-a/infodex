@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './header.css';
 
 export default function() {
@@ -9,9 +10,9 @@ export default function() {
                     InfoDex
                 </div>
                 <div className='opts-container'>
-                    <div className='option'>
+                    <Link to='/browse' className='option'>
                         Browse
-                    </div>
+                    </Link>
                     <div className='option'>
                         About
                     </div>
