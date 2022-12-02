@@ -1,0 +1,26 @@
+div.homepage {
+    display: flex;
+    flex-direction: row;
+}
+
+img#home-random {
+    width: 300px;
+    height: auto;
+    margin-left: 1rem;
+    margin-right: 4rem;
+}
+
+.home-info {
+    padding-right: 1rem;
+}
+
+#random-title {
+    font-family: 'Pocket Monk';
+    font-size: xxx-large;
+}
+
+#random-abilities {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
