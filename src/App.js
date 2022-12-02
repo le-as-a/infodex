@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Searchbar from './components/Searchbar';
 import { getAbilities } from './store/abilitySlice';
+import { getItems } from './store/itemSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function App() {
   useEffect(() => {
     (async () => {
       dispatch(getAbilities());
+      dispatch(getItems());
     })();
   }, [dispatch])
 
