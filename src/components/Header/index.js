@@ -10,6 +10,9 @@ export default function() {
                     InfoDex
                 </div>
                 <div className='opts-container'>
+                    <Link to='/' className='option'>
+                        Home
+                    </Link>
                     <Link to='/browse' className='option'>
                         Browse
                     </Link>

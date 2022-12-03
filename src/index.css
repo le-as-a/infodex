@@ -4,6 +4,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 100vh;
 }
 
 code {
@@ -12,5 +13,6 @@ code {
 }
 
 div#root {
-  min-height: 100vh;
+  max-height: inherit;
+  margin: 0;
 }

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css';
 
 import Header from './components/Header';
 import Home from './components/Home';
-import Searchbar from './components/Searchbar';
+import Browse from './components/Browse';
 import { getAbilities } from './store/abilitySlice';
 import { getItems } from './store/itemSlice';
 
@@ -24,6 +24,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/browse' element={<Browse />} />
       </Routes>
     </Router>
   );
