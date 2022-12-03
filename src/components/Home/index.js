@@ -23,6 +23,15 @@ export default function() {
     return (
         <>
             <div className='homepage'>
+                <div className='welcome'>
+                    <div id='welcome-title'>
+                        Thanks for stopping by!
+                    </div>
+                    This is a project using PokeAPI to provide information on the various different Abilities and Items that are referenced to in the Pokemon world! Head over to the Browse page for everything this project has to offer. <br /><br />
+
+                    Have a random pokemon too!
+                </div>
+                <div className='random-pokemon'>
                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${randomId}.png`} alt={`poke-${randomId}`} id='home-random' />
                 <div className='home-info'>
                     <div id='random-title'>
@@ -51,6 +60,7 @@ export default function() {
                             )
                         })}
                     </div>
+                </div>
                 </div>
             </div>
         </>
