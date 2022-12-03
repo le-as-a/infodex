@@ -1,7 +1,6 @@
 .browse {
     overflow-y: scroll;
     max-height: 70vh;
-    margin: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

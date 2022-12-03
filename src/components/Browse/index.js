@@ -41,10 +41,12 @@ export default function({}) {
 
     return (
         <>
+            <div className='browse-btns'>
+                <button onClick={() => setFilter('none')}>All</button>
+                <button onClick={() => setFilter('item')}>Items</button>
+                <button onClick={() => setFilter('ability')}>Abilities</button>
+            </div>
             <div className='browse'>
-                <div className='browse-btns'>
-
-                </div>
                 {allItems.map(item => {
                     switch(filter) {
                         case 'ability':
@@ -87,7 +89,6 @@ export default function({}) {
                                     </div>
                                 )
                             }
-                            break;
                     }
                 })}
             </div>
