@@ -11,6 +11,15 @@
 .result-reducer {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+
+.browse-search {
+    width: 25em;
+}
+
+#searchbar {
+    width: 80%;
 }
 
 .browse-opt {

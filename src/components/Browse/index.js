@@ -56,24 +56,24 @@ export default function({ abilities, items, loaded }) {
     return (
         <>
             <div className='result-reducer'>
-            <div className='browse-search'>
-                <input 
-                    id='searchbar'
-                    placeholder='Narrow your results...'
-                    onChange={e => setSearch(e.target.value)}
-                    value={search}
-                />
-                <button
-                    onClick={() => setSearch('')}
-                >
-                    Reset 
-                </button>
-            </div>
-            <div className='browse-btns'>
-                <button onClick={() => {setFilter('none'); setSearch('')}}>All</button>
-                <button onClick={() => {setFilter('item'); setSearch('')}}>Items</button>
-                <button onClick={() => {setFilter('ability'); setSearch('')}}>Abilities</button>
-            </div>
+                <div className='browse-search'>
+                    <input 
+                        id='searchbar'
+                        placeholder='Narrow your results...'
+                        onChange={e => setSearch(e.target.value)}
+                        value={search}
+                    />
+                    <button
+                        onClick={() => setSearch('')}
+                    >
+                        Reset 
+                    </button>
+                </div>
+                <div className='browse-btns'>
+                    <button onClick={() => {setFilter('none'); setSearch('')}}>All</button>
+                    <button onClick={() => {setFilter('item'); setSearch('')}}>Items</button>
+                    <button onClick={() => {setFilter('ability'); setSearch('')}}>Abilities</button>
+                </div>
             </div>
             <div className='browse'>
                 {allItems.map(item => {
