@@ -54,7 +54,7 @@ export default function() {
                             Category: {catName()}
                         </div>
                         <div className='more-info'>
-                            <a href={`https://www.serebii.net/search.shtml?&q=${item.name}&sa=Search`} target='_blank'>
+                            <a href={`https://www.serebii.net/search.shtml?&q=${item.name}&sa=Search`} rel="noreferrer" target='_blank'>
                                 More Info
                             </a>
                         </div>

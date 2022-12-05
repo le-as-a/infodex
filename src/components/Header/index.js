@@ -19,9 +19,6 @@ export default function() {
                     <div className='option'>
                         About
                     </div>
-                    <div className='option'>
-                        Login
-                    </div>
                 </div>
             </div>
         </>

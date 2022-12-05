@@ -26,7 +26,7 @@ export const getAbilityInfo = createAsyncThunk(
                 return pkmn.pokemon.name;
             })
             const abilityInfo = {
-                name: data.names,
+                name: data.name,
                 description: data.effect_entries,
                 gen: data.generation.name,
                 pokemon: pkmnNames
