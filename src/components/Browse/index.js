@@ -70,9 +70,9 @@ export default function({ abilities, items, loaded }) {
                 </button>
             </div>
             <div className='browse-btns'>
-                <button onClick={() => setFilter('none')}>All</button>
-                <button onClick={() => setFilter('item')}>Items</button>
-                <button onClick={() => setFilter('ability')}>Abilities</button>
+                <button onClick={() => {setFilter('none'); setSearch('')}}>All</button>
+                <button onClick={() => {setFilter('item'); setSearch('')}}>Items</button>
+                <button onClick={() => {setFilter('ability'); setSearch('')}}>Abilities</button>
             </div>
             </div>
             <div className='browse'>
@@ -115,7 +115,7 @@ export default function({ abilities, items, loaded }) {
                             if (item.type === 'item' && item.name.toLowerCase().includes(search.toLowerCase())) {
                                 return (
                                     <div className='browse-opt'>
-                                        <Link to={`/ability/${item.slug}`} className='browse-link'>
+                                        <Link to={`/item/${item.slug}`} className='browse-link'>
                                             {item.name}
                                         </Link>
                                     </div>

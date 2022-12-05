@@ -16,6 +16,26 @@ export const getAbilities = createAsyncThunk(
     }
 )
 
+export const getAbilityInfo = createAsyncThunk(
+    'ability/GET_INFO',
+    async (id) => {
+        const res = await fetch(`https://pokeapi.co/api/v2/ability/${id}`);
+        if (res.ok) {
+            const data = await res.json();
+            const pkmnNames = data.pokemon.map(pkmn => {
+                return pkmn.pokemon.name;
+            })
+            const abilityInfo = {
+                name: data.names,
+                description: data.effect_entries,
+                gen: data.generation.name,
+                pokemon: pkmnNames
+            }
+            return abilityInfo;
+        }
+    }
+)
+
 export const abilitySlice = createSlice({
     name: 'ability',
     initialState,
@@ -23,6 +43,10 @@ export const abilitySlice = createSlice({
         builder.addCase(getAbilities.fulfilled, (state, action) => {
             state.names = action.payload;
             return state;
-        })
+        });
+        builder.addCase(getAbilityInfo.fulfilled, (state, action) => {
+            state.current = action.payload;
+            return state;
+        });
     }
 })

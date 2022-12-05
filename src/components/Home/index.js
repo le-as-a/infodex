@@ -18,8 +18,6 @@ export default function() {
         })();
     }, [dispatch]);
 
-    if (pkmn) console.log(pkmn)
-
     return (
         <>
             <div className='homepage'>

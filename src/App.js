@@ -8,6 +8,8 @@ import Home from './components/Home';
 import Browse from './components/Browse';
 import { getAbilities } from './store/abilitySlice';
 import { getItems } from './store/itemSlice';
+import AbilityPage from './components/AbilityPage';
+import ItemPage from './components/ItemPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +33,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/browse' element={<Browse loaded={loaded} abilities={abilityNames} items={itemNames}  />} />
+        <Route path='/ability/:abilityId' element={<AbilityPage />} />
+        <Route path='/item/:itemId' element={<ItemPage />} />
       </Routes>
     </Router>
   );
