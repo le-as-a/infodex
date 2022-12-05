@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css';
 
@@ -11,20 +11,26 @@ import { getItems } from './store/itemSlice';
 
 function App() {
   const dispatch = useDispatch();
+  const [loaded, setLoaded] = useState(false);
+  const abilityNames = useSelector(state => state.ability.names);
+  const itemNames = useSelector(state => state.item.names);
 
   useEffect(() => {
     (async () => {
       dispatch(getAbilities());
       dispatch(getItems());
+      setLoaded(true);
     })();
   }, [dispatch])
+
+  if (!loaded) return null;
 
   return (
     <Router>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/browse' element={<Browse />} />
+        <Route path='/browse' element={<Browse loaded={loaded} abilities={abilityNames} items={itemNames}  />} />
       </Routes>
     </Router>
   );

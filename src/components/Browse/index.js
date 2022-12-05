@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './browse.css';
 
-export default function({}) {
+export default function({ abilities, items, loaded }) {
     const allItems = [];
-    const [filter, setFilter] = useState('item');
-    const abilityNames = useSelector(state => state.ability.names);
-    const itemNames = useSelector(state => state.item.names);
+    const [filter, setFilter] = useState('none');
+    const [search, setSearch] = useState('');
 
-    for (let a of abilityNames) {
+    if (!loaded) return null;
+
+    useEffect(() => {
+        (async () => {
+            if (search) {
+                if (filter === 'ability') {
+                    setFilter('ability-search');
+                } else if (filter === 'item') {
+                    setFilter('item-search');
+                } else {
+                    setFilter('search');
+                }
+            } 
+        })();
+    }, [search])
+    
+    for (let a of abilities) {
         let arr = a.split('-');
         arr = arr.map(wrd => wrd[0]?.toUpperCase() + wrd?.slice(1));
         const abilityTitle = arr.join(' ');
@@ -20,7 +34,7 @@ export default function({}) {
         })
     }
 
-    for (let i of itemNames) {
+    for (let i of items) {
         let arr = i.split('-');
         arr = arr.map(wrd => wrd[0]?.toUpperCase() + wrd?.slice(1));
         const itemTitle = arr.join(' ');
@@ -41,10 +55,25 @@ export default function({}) {
 
     return (
         <>
+            <div className='result-reducer'>
+            <div className='browse-search'>
+                <input 
+                    id='searchbar'
+                    placeholder='Narrow your results...'
+                    onChange={e => setSearch(e.target.value)}
+                    value={search}
+                />
+                <button
+                    onClick={() => setSearch('')}
+                >
+                    Reset 
+                </button>
+            </div>
             <div className='browse-btns'>
                 <button onClick={() => setFilter('none')}>All</button>
                 <button onClick={() => setFilter('item')}>Items</button>
                 <button onClick={() => setFilter('ability')}>Abilities</button>
+            </div>
             </div>
             <div className='browse'>
                 {allItems.map(item => {
@@ -69,6 +98,49 @@ export default function({}) {
                                         </Link>
                                     </div>
                                 )
+                            }
+                            break;
+                        case 'ability-search':
+                            if (item.type === 'ability' && item.name.toLowerCase().includes(search.toLowerCase())) {
+                                return (
+                                    <div className='browse-opt'>
+                                        <Link to={`/ability/${item.slug}`} className='browse-link'>
+                                            {item.name}
+                                        </Link>
+                                    </div>
+                                )
+                            }
+                            break;
+                        case 'item-search':
+                            if (item.type === 'item' && item.name.toLowerCase().includes(search.toLowerCase())) {
+                                return (
+                                    <div className='browse-opt'>
+                                        <Link to={`/ability/${item.slug}`} className='browse-link'>
+                                            {item.name}
+                                        </Link>
+                                    </div>
+                                )
+                            }
+                            break;
+                        case 'search':
+                            if (item.name.toLowerCase().includes(search.toLowerCase())) {
+                                if (item.type === 'ability') {
+                                    return (
+                                        <div className='browse-opt'>
+                                            <Link to={`/ability/${item.slug}`} className='browse-link'>
+                                                {item.name}
+                                            </Link>
+                                        </div>
+                                    )
+                                } else {
+                                    return (
+                                        <div className='browse-opt'>
+                                            <Link to={`/item/${item.slug}`} className='browse-link'>
+                                                {item.name}
+                                            </Link>
+                                        </div>
+                                    )
+                                }
                             }
                             break;
                         default:

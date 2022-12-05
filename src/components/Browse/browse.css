@@ -8,6 +8,11 @@
     width: 60vw;
 }
 
+.result-reducer {
+    display: flex;
+    flex-direction: row;
+}
+
 .browse-opt {
     flex: 0 32%;
     display: flex;
